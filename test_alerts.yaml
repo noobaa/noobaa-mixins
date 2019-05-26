@@ -1,0 +1,17 @@
+rule_files:
+  - prometheus_alert_rules.yaml
+evaluation_interval: 1m
+tests:
+  - interval: 1m
+    input_series:
+    alert_rule_test:
+      - alertname: 'testname'
+        eval_time: 11m
+        exp_alerts:
+         - exp_labels:
+             severity: warning
+           exp_annotations:
+             message: 'test'
+             description: 'test'
+             storage_type: 'noobaa'
+             severity_level: 'warning'
