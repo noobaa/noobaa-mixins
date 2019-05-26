@@ -25,7 +25,8 @@ lint: prometheus_alert_rules.yaml
 
 clean:
 	rm -rf prometheus_alert_rules.yaml
+	rm -rf prometheus_rules.yaml
 
 test: prometheus_alert_rules.yaml prometheus_rules.yaml
-	promtool test rules test_alerts.yaml
-	promtool test rules test_rules.yaml
+	promtool test rules tests/test_alerts.yaml
+	promtool test rules tests/test_rules.yaml
