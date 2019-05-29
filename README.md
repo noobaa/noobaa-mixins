@@ -1,5 +1,5 @@
 # noobaa-mixins
-Prometheus Alerts for NooBaa
+Prometheus Alerts for [NooBaa](https://github.com/noobaa/noobaa-core)
 
 ### Prerequesites 
 * Install GO and have your GOPATH updated
