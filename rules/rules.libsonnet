@@ -3,7 +3,7 @@
     prometheusRules+:: {
         groups+: [
         {
-            name: 'ceph.rules',
+            name: 'noobaa.rules',
             rules: [
                 {
                 },
