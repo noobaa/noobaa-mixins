@@ -4,13 +4,13 @@
       {
         name: 'bucket-quota-alert.rules',
         rules: [
-          {
+          /* {
             alert: 'NooBaaBucketQuotaWarning',
             expr: |||
               noobaa_bucket_quota{} > 0.85
-            |||  % $._config,
+            ||| % $._config,
             labels: {
-               severity: 'warning',
+              severity: 'warning',
             },
             annotations: {
               message: 'A NooBaa Bucket Is Approaching Its Quota',
@@ -18,7 +18,7 @@
               storage_type: $._config.storageType,
               severity_level: 'warning',
             },
-          },
+          }, */
         ],
       },
     ],
