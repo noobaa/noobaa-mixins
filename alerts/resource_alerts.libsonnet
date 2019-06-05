@@ -4,7 +4,7 @@
       {
         name: 'resource-state-alert.rules',
         rules: [
-          {
+          /* {
             alert: 'NooBaaResourceErrorState',
             expr: |||
               noobaa_resource_health_status{} > 1
@@ -19,7 +19,7 @@
               storage_type: $._config.storageType,
               severity_level: 'error',
             },
-          },
+          }, */
         ],
       },
     ],

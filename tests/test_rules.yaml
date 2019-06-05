@@ -1,16 +1,16 @@
-rule_files:
-  - prometheus_rules.yaml
-evaluation_interval: 1m
-tests:
-  - interval: 1s
-    input_series:
-      - series: ''
-        values: ''
-      - series: ''
-        values: ''
-    promql_expr_test:
-      - expr: ::join_kube
-        eval_time: 4s
-        exp_samples:
-          - labels: ''
-            value: 1
+# rule_files:
+#   - prometheus_rules.yaml
+# evaluation_interval: 1m
+# tests:
+#   - interval: 1s
+#     input_series:
+#       - series: ''
+#         values: ''
+#       - series: ''
+#         values: ''
+#     promql_expr_test:
+#       - expr: ::join_kube
+#         eval_time: 4s
+#         exp_samples:
+#           - labels: ''
+#             value: 1

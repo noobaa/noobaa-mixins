@@ -1,17 +1,51 @@
 rule_files:
-  - prometheus_alert_rules.yaml
+  - ../prometheus_alert_rules.yaml
 evaluation_interval: 1m
 tests:
   - interval: 1m
     input_series:
+      - series: 'noobaa_system_capacity{}'
+        values: '86+0x16'
     alert_rule_test:
-      - alertname: 'testname'
+      - alertname: 'NooBaaSystemCapacityWarning85'
         eval_time: 11m
         exp_alerts:
          - exp_labels:
              severity: warning
            exp_annotations:
-             message: 'test'
-             description: 'test'
-             storage_type: 'noobaa'
+             message: 'A NooBaa System Is Approaching Its Capacity'
+             description: 'A NooBaa system is approaching its capacity, usage is more than 85%'
+             storage_type: 'NooBaa'
+             severity_level: 'warning'
+
+  - interval: 1m
+    input_series:
+      - series: 'noobaa_system_capacity{}'
+        values: '96+0x16'
+    alert_rule_test:
+      - alertname: 'NooBaaSystemCapacityWarning95'
+        eval_time: 11m
+        exp_alerts:
+         - exp_labels:
+             severity: warning
+           exp_annotations:
+             message: 'A NooBaa System Is Approaching Its Capacity'
+             description: 'A NooBaa system is approaching its capacity, usage is more than 95%'
+             storage_type: 'NooBaa'
+             severity_level: 'warning'
+
+  - interval: 1m
+    input_series:
+      - series: 'noobaa_system_capacity{}'
+        values: '100+0x16'
+    alert_rule_test:
+      - alertname: 'NooBaaSystemCapacityWarning100'
+        eval_time: 11m
+        exp_alerts:
+         - exp_labels:
+             severity: warning
+           exp_annotations:
+             message: 'A NooBaa System Approached Its Capacity'
+             description: 'A NooBaa system approached its capacity, usage is at 100%'
+             storage_type: 'NooBaa'
              severity_level: 'warning'
