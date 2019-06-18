@@ -7,7 +7,7 @@
           /* {
             alert: 'NooBaaResourceErrorState',
             expr: |||
-              noobaa_resource_health_status{} > 1
+              NooBaa_resource_health_status{} > 1
             ||| % $._config,
             'for': $._config.resourceErrorStateAlertTime,
             labels: {

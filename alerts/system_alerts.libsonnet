@@ -7,7 +7,7 @@
           {
             alert: 'NooBaaSystemCapacityWarning85',
             expr: |||
-              noobaa_system_capacity{} > 85
+              NooBaa_system_capacity{} > 85
             ||| % $._config,
             labels: {
               severity: 'warning',
@@ -22,7 +22,7 @@
           {
             alert: 'NooBaaSystemCapacityWarning95',
             expr: |||
-              noobaa_system_capacity{} > 95
+              NooBaa_system_capacity{} > 95
             ||| % $._config,
             labels: {
               severity: 'warning',
@@ -37,7 +37,7 @@
           {
             alert: 'NooBaaSystemCapacityWarning100',
             expr: |||
-              noobaa_system_capacity{} == 100
+              NooBaa_system_capacity{} == 100
             ||| % $._config,
             labels: {
               severity: 'warning',

@@ -7,7 +7,7 @@
           /* {
             alert: 'NooBaaBucketQuotaWarning',
             expr: |||
-              noobaa_bucket_quota{} > 0.85
+              NooBaa_bucket_quota{} > 0.85
             ||| % $._config,
             labels: {
               severity: 'warning',
