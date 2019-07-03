@@ -1,3 +1,11 @@
 
 prometheus_alert_rules.yaml
 prometheus_rules.yaml
+*.yaml
+dashboards_out
+vendor
+jsonnetfile.lock.json
+!*extras/manifests/*.yaml
+!*manifests/*.yaml
+!*test_alerts.yaml
+!*test_rules.yaml
