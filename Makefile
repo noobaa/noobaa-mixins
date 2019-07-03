@@ -3,7 +3,7 @@ RELEASE := 1
 
 JSONNET_FMT := jsonnetfmt -n 2 --max-blank-lines 2 --string-style s --comment-style s
 
-all: prometheus_alert_rules.yaml lint test
+all: fmt prometheus_alert_rules.yaml lint test
 
 fmt:
 	find . -name 'vendor' -prune -o -name '*.libsonnet' -print -o -name '*.jsonnet' -print | \
