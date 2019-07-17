@@ -4,7 +4,7 @@ evaluation_interval: 1m
 tests:
   - interval: 1m
     input_series:
-      - series: 'NooBaa_system_capacity{}'
+      - series: 'NooBaa_system_capacity'
         values: '86+0x16'
     alert_rule_test:
       - alertname: 'NooBaaSystemCapacityWarning85'
@@ -20,7 +20,7 @@ tests:
 
   - interval: 1m
     input_series:
-      - series: 'NooBaa_system_capacity{}'
+      - series: 'NooBaa_system_capacity'
         values: '96+0x16'
     alert_rule_test:
       - alertname: 'NooBaaSystemCapacityWarning95'
@@ -36,7 +36,7 @@ tests:
 
   - interval: 1m
     input_series:
-      - series: 'NooBaa_system_capacity{}'
+      - series: 'NooBaa_system_capacity'
         values: '100+0x16'
     alert_rule_test:
       - alertname: 'NooBaaSystemCapacityWarning100'

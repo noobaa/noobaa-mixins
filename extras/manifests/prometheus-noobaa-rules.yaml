@@ -25,7 +25,7 @@ spec:
         severity_level: warning
         storage_type: NooBaa
       expr: |
-        NooBaa_system_capacity{} > 85
+        NooBaa_system_capacity > 85
       labels:
         severity: warning
     - alert: NooBaaSystemCapacityWarning95
@@ -36,7 +36,7 @@ spec:
         severity_level: warning
         storage_type: NooBaa
       expr: |
-        NooBaa_system_capacity{} > 95
+        NooBaa_system_capacity > 95
       labels:
         severity: warning
     - alert: NooBaaSystemCapacityWarning100
@@ -46,6 +46,6 @@ spec:
         severity_level: warning
         storage_type: NooBaa
       expr: |
-        NooBaa_system_capacity{} == 100
+        NooBaa_system_capacity == 100
       labels:
         severity: warning
