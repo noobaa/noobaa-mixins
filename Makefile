@@ -3,7 +3,7 @@ RELEASE := 1
 
 JSONNET_FMT := jsonnetfmt -n 2 --max-blank-lines 2 --string-style s --comment-style s
 
-all: fmt prometheus_alert_rules.yaml lint test
+all: fmt prometheus_alert_rules.yaml lint test generate_cr
 
 fmt:
 	find . -name 'vendor' -prune -o -name '*.libsonnet' -print -o -name '*.jsonnet' -print | \
@@ -30,3 +30,6 @@ clean:
 test: prometheus_alert_rules.yaml prometheus_rules.yaml
 	promtool test rules tests/test_alerts.yaml
 	promtool test rules tests/test_rules.yaml
+
+generate_cr: 
+	cd extras/;jb install;./build.sh
