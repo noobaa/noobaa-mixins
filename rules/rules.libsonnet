@@ -30,6 +30,18 @@
               sum(NooBaa_num_objects + NooBaa_num_objects_buckets_claims)
             ||| % $._config,
           },
+          {
+            record: 'noobaa_accounts_num',
+            expr: |||
+              NooBaa_accounts_num
+            ||| % $._config,
+          },
+          {
+            record: 'NooBaa_total_usage',
+            expr: |||
+              NooBaa_total_usage
+            ||| % $._config,
+          },
         ],
       },
     ],
