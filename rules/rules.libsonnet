@@ -37,7 +37,7 @@
             ||| % $._config,
           },
           {
-            record: 'NooBaa_total_usage',
+            record: 'noobaa_total_usage',
             expr: |||
               NooBaa_total_usage
             ||| % $._config,
