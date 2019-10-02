@@ -27,12 +27,12 @@ tests:
         eval_time: 11m
         exp_alerts:
          - exp_labels:
-             severity: warning
+             severity: critical
            exp_annotations:
              message: 'A NooBaa System Is Approaching Its Capacity'
              description: 'A NooBaa system is approaching its capacity, usage is more than 95%'
              storage_type: 'NooBaa'
-             severity_level: 'warning'
+             severity_level: 'critical'
 
   - interval: 1m
     input_series:
@@ -43,12 +43,12 @@ tests:
         eval_time: 11m
         exp_alerts:
          - exp_labels:
-             severity: warning
+             severity: critical
            exp_annotations:
              message: 'A NooBaa System Approached Its Capacity'
              description: 'A NooBaa system approached its capacity, usage is at 100%'
              storage_type: 'NooBaa'
-             severity_level: 'warning'
+             severity_level: 'critical'
              
   - interval: 1m
     input_series:
