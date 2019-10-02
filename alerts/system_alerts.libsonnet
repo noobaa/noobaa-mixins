@@ -25,13 +25,13 @@
               NooBaa_system_capacity > 95
             ||| % $._config,
             labels: {
-              severity: 'warning',
+              severity: 'critical',
             },
             annotations: {
               message: 'A NooBaa System Is Approaching Its Capacity',
               description: 'A NooBaa system is approaching its capacity, usage is more than 95%',
               storage_type: $._config.storageType,
-              severity_level: 'warning',
+              severity_level: 'critical',
             },
           },
           {
@@ -40,13 +40,13 @@
               NooBaa_system_capacity == 100
             ||| % $._config,
             labels: {
-              severity: 'warning',
+              severity: 'critical',
             },
             annotations: {
               message: 'A NooBaa System Approached Its Capacity',
               description: 'A NooBaa system approached its capacity, usage is at 100%',
               storage_type: $._config.storageType,
-              severity_level: 'warning',
+              severity_level: 'critical',
             },
           },
         ],
