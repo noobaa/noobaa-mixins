@@ -25,6 +25,7 @@
             expr: |||
               NooBaa_bucket_quota{bucket_name=~".*"} > 80
             ||| % $._config,
+            'for': $._config.bucketErrorStateAlertTime,
             labels: {
               severity: 'warning',
             },
@@ -40,6 +41,7 @@
             expr: |||
               NooBaa_bucket_quota{bucket_name=~".*"} >= 100
             ||| % $._config,
+            'for': $._config.bucketErrorStateAlertTime,
             labels: {
               severity: 'warning',
             },
@@ -55,6 +57,7 @@
             expr: |||
               NooBaa_bucket_capacity{bucket_name=~".*"} > 80
             ||| % $._config,
+            'for': $._config.bucketErrorStateAlertTime,
             labels: {
               severity: 'warning',
             },
@@ -70,6 +73,7 @@
             expr: |||
               NooBaa_bucket_capacity{bucket_name=~".*"} > 95
             ||| % $._config,
+            'for': $._config.bucketErrorStateAlertTime,
             labels: {
               severity: 'warning',
             },

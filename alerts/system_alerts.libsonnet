@@ -9,6 +9,7 @@
             expr: |||
               NooBaa_system_capacity > 85
             ||| % $._config,
+            'for': $._config.systemCapacityAlertTime,
             labels: {
               severity: 'warning',
             },
@@ -24,6 +25,7 @@
             expr: |||
               NooBaa_system_capacity > 95
             ||| % $._config,
+            'for': $._config.systemCapacityAlertTime,
             labels: {
               severity: 'critical',
             },
@@ -39,6 +41,7 @@
             expr: |||
               NooBaa_system_capacity == 100
             ||| % $._config,
+            'for': $._config.systemCapacityAlertTime,
             labels: {
               severity: 'critical',
             },

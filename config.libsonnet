@@ -1,8 +1,9 @@
 {
   _config+:: {
     //any config variables should go here
-    bucketErrorStateAlertTime: '6m',
-    resourceErrorStateAlertTime: '6m',
+    bucketErrorStateAlertTime: '5m',
+    resourceErrorStateAlertTime: '5m',
+    systemCapacityAlertTime: '5m',
     storageType: 'NooBaa',
   },
 }
