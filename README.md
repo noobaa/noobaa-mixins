@@ -12,6 +12,12 @@ brew install jsonnet
 go get github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb
 ```
 
+* For jsonnet > 0.13 it seems that brew is missing some binaries so also install the following two
+```
+go get github.com/brancz/gojsontoyaml
+go get github.com/google/go-jsonnet/cmd/jsonnetfmt
+```
+
 * Install [promtool](https://github.com/prometheus/prometheus)
 ```
 go get github.com/prometheus/prometheus/cmd/promtool
