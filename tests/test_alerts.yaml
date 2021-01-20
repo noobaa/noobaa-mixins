@@ -69,6 +69,23 @@ tests:
 
   - interval: 1m
     input_series:
+      - series: 'NooBaa_namespace_resource_status{namespace_resource_name="namespace_resource1"}'
+        values: '0+0x16'
+    alert_rule_test:
+      - alertname: 'NooBaaNamespaceResourceErrorState'
+        eval_time: 11m
+        exp_alerts:
+         - exp_labels:
+             severity: warning
+             namespace_resource_name: namespace_resource1
+           exp_annotations:
+             message: 'A NooBaa Namespace Resource Is In Error State'
+             description: 'A NooBaa namespace resource namespace_resource1 is in error state for more than 5m'
+             storage_type: 'NooBaa'
+             severity_level: 'warning'
+
+  - interval: 1m
+    input_series:
       - series: 'NooBaa_bucket_status{bucket_name="bucket1"}'
         values: '0+0x16'
     alert_rule_test:
@@ -81,6 +98,23 @@ tests:
            exp_annotations:
              message: 'A NooBaa Bucket Is In Error State'
              description: 'A NooBaa bucket bucket1 is in error state for more than 5m'
+             storage_type: 'NooBaa'
+             severity_level: 'warning'
+  
+  - interval: 1m
+    input_series:
+      - series: 'NooBaa_namespace_bucket_status{bucket_name="namespace_bucket1"}'
+        values: '0+0x16'
+    alert_rule_test:
+      - alertname: 'NooBaaNamespaceBucketErrorState'
+        eval_time: 11m
+        exp_alerts:
+         - exp_labels:
+             severity: warning
+             bucket_name: namespace_bucket1
+           exp_annotations:
+             message: 'A NooBaa Namespace Bucket Is In Error State'
+             description: 'A NooBaa namespace bucket namespace_bucket1 is in error state for more than 5m'
              storage_type: 'NooBaa'
              severity_level: 'warning'
 

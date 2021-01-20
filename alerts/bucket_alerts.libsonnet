@@ -21,6 +21,22 @@
             },
           },
           {
+            alert: 'NooBaaNamespaceBucketErrorState',
+            expr: |||
+              NooBaa_namespace_bucket_status{bucket_name=~".*"} == 0
+            ||| % $._config,
+            'for': $._config.bucketErrorStateAlertTime,
+            labels: {
+              severity: 'warning',
+            },
+            annotations: {
+              message: 'A NooBaa Namespace Bucket Is In Error State',
+              description: 'A NooBaa namespace bucket {{ $labels.bucket_name }} is in error state for more than %s' % $._config.bucketErrorStateAlertTime,
+              storage_type: $._config.storageType,
+              severity_level: 'warning',
+            },
+          },
+          {
             alert: 'NooBaaBucketReachingQuotaState',
             expr: |||
               NooBaa_bucket_quota{bucket_name=~".*"} > 80

@@ -19,9 +19,21 @@
             ||| % $._config,
           },
           {
+            record: 'job:noobaa_total_unhealthy_namespace_buckets',
+            expr: |||
+              NooBaa_num_unhealthy_namespace_buckets
+            ||| % $._config,
+          },
+          {
             record: 'job:noobaa_bucket_count:sum',
             expr: |||
               sum(NooBaa_num_buckets + NooBaa_num_buckets_claims)
+            ||| % $._config,
+          },
+          {
+            record: 'job:noobaa_namespace_bucket_count',
+            expr: |||
+              NooBaa_num_namespace_buckets
             ||| % $._config,
           },
           {
