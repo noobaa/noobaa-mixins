@@ -120,35 +120,69 @@ tests:
 
   - interval: 1m
     input_series:
-      - series: 'NooBaa_bucket_quota{bucket_name="bucket1"}'
+      - series: 'NooBaa_bucket_size_quota{bucket_name="bucket1"}'
         values: '81+0x16'
     alert_rule_test:
-      - alertname: 'NooBaaBucketReachingQuotaState'
+      - alertname: 'NooBaaBucketReachingSizeQuotaState'
         eval_time: 11m
         exp_alerts:
          - exp_labels:
              severity: warning
              bucket_name: bucket1
            exp_annotations:
-             message: 'A NooBaa Bucket Is In Reaching Quota State'
-             description: 'A NooBaa bucket bucket1 is using 81% of its quota'
+             message: 'A NooBaa Bucket Is In Reaching Size Quota State'
+             description: 'A NooBaa bucket bucket1 is using 81% of its size quota'
              storage_type: 'NooBaa'
              severity_level: 'warning'
 
   - interval: 1m
     input_series:
-      - series: 'NooBaa_bucket_quota{bucket_name="bucket1"}'
+      - series: 'NooBaa_bucket_size_quota{bucket_name="bucket1"}'
         values: '102+0x16'
     alert_rule_test:
-      - alertname: 'NooBaaBucketExceedingQuotaState'
+      - alertname: 'NooBaaBucketExceedingSizeQuotaState'
         eval_time: 11m
         exp_alerts:
          - exp_labels:
              severity: warning
              bucket_name: bucket1
            exp_annotations:
-             message: 'A NooBaa Bucket Is In Exceeding Quota State'
-             description: 'A NooBaa bucket bucket1 is exceeding its quota - 102% used'
+             message: 'A NooBaa Bucket Is In Exceeding Size Quota State'
+             description: 'A NooBaa bucket bucket1 is exceeding its size quota - 102% used'
+             storage_type: 'NooBaa'
+             severity_level: 'warning'
+
+  - interval: 1m
+    input_series:
+      - series: 'NooBaa_bucket_quantity_quota{bucket_name="bucket1"}'
+        values: '81+0x16'
+    alert_rule_test:
+      - alertname: 'NooBaaBucketReachingQuantityQuotaState'
+        eval_time: 11m
+        exp_alerts:
+         - exp_labels:
+             severity: warning
+             bucket_name: bucket1
+           exp_annotations:
+             message: 'A NooBaa Bucket Is In Reaching Quantity Quota State'
+             description: 'A NooBaa bucket bucket1 is using 81% of its quantity quota'
+             storage_type: 'NooBaa'
+             severity_level: 'warning'
+
+  - interval: 1m
+    input_series:
+      - series: 'NooBaa_bucket_quantity_quota{bucket_name="bucket1"}'
+        values: '102+0x16'
+    alert_rule_test:
+      - alertname: 'NooBaaBucketExceedingQuantityQuotaState'
+        eval_time: 11m
+        exp_alerts:
+         - exp_labels:
+             severity: warning
+             bucket_name: bucket1
+           exp_annotations:
+             message: 'A NooBaa Bucket Is In Exceeding Quantity Quota State'
+             description: 'A NooBaa bucket bucket1 is exceeding its quantity quota - 102% used'
              storage_type: 'NooBaa'
              severity_level: 'warning'
   
