@@ -9,17 +9,21 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
+      - uses: actions/setup-go@v2
+        with:
+          go-version: "1.16"
 
       - name: Install Packages
         id: run-install-pkgs
         run: |
           go get github.com/jsonnet-bundler/jsonnet-bundler/cmd/jb
-          go get github.com/prometheus/prometheus/cmd/promtool
           git clone https://github.com/google/jsonnet /home/runner/jsonnet
           make -C /home/runner/jsonnet CC=clang CXX=clang++
           sudo cp /home/runner/jsonnet/jsonnet /usr/local/bin
           sudo cp /home/runner/jsonnet/jsonnetfmt /usr/local/bin
-          sudo cp /home/runner/go/bin/promtool /usr/local/bin/
+          wget https://github.com/prometheus/prometheus/releases/download/v2.29.1/prometheus-2.29.1.linux-amd64.tar.gz
+          tar xvf prometheus-2.29.1.linux-amd64.tar.gz
+          sudo cp prometheus-2.29.1.linux-amd64/promtool /usr/local/bin/
           sudo cp /home/runner/go/bin/jb /usr/local/bin/
           jb install
 
