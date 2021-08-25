@@ -1,5 +1,5 @@
 {
-  //Common expressions to be used accross all rules categories should be added here
+  //Common expressions to be used across all rules categories should be added here
   prometheusRules+:: {
     groups+: [
       // {
@@ -53,6 +53,51 @@
             expr: |||
               NooBaa_total_usage
             ||| % $._config,
+          },
+        ],
+      },
+      {
+        name: 'noobaa-odf.rules',
+        rules: [
+          {
+            record: 'odf_system_health_status',
+            expr: |||
+              NooBaa_odf_health_status
+            ||| % $._config,
+            labels: {
+              system_vendor: 'Red Hat',
+              system_type: 'OCS',
+            },
+          },
+          {
+            record: 'odf_system_raw_capacity_used_bytes',
+            expr: |||
+              NooBaa_system_capacity
+            ||| % $._config,
+            labels: {
+              system_vendor: 'Red Hat',
+              system_type: 'OCS',
+            },
+          },
+          {
+            record: 'odf_system_iops_total_bytes',
+            expr: |||
+              sum by (namespace, managedBy, job, service) (rate(NooBaa_providers_ops_read_num[5m]) + rate(NooBaa_providers_ops_write_num[5m]))
+            ||| % $._config,
+            labels: {
+              system_vendor: 'Red Hat',
+              system_type: 'OCS',
+            },
+          },
+          {
+            record: 'odf_system_throughput_total_bytes',
+            expr: |||
+              sum by (namespace, managedBy, job, service) (rate(NooBaa_providers_bandwidth_read_size[5m]) + rate(NooBaa_providers_bandwidth_write_size[5m]))
+            ||| % $._config,
+            labels: {
+              system_vendor: 'Red Hat',
+              system_type: 'OCS',
+            },
           },
         ],
       },
