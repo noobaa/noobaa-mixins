@@ -107,31 +107,31 @@
           {
             record: 'noobaa_replication_total_writes_size',
             expr: |||
-              sum_over_time(sum by (replication_id) (NooBaa_replication_last_cycle_writes_size)[1y:30s])
+              sum_over_time(sum by (replication_id) (NooBaa_replication_last_cycle_writes_size)[1y:6m])
             ||| % $._config,
           },
           {
             record: 'noobaa_replication_total_writes_num',
             expr: |||
-              sum_over_time(sum by (replication_id) (NooBaa_replication_last_cycle_writes_num)[1y:30s])
+              sum_over_time(sum by (replication_id) (NooBaa_replication_last_cycle_writes_num)[1y:6m])
             ||| % $._config,
           },
           {
             record: 'noobaa_replication_total_error_writes_size',
             expr: |||
-              sum_over_time(sum by (replication_id) (NooBaa_replication_last_cycle_error_writes_size)[1y:30s])
+              sum_over_time(sum by (replication_id) (NooBaa_replication_last_cycle_error_writes_size)[1y:6m])
             ||| % $._config,
           },
           {
             record: 'noobaa_replication_total_error_writes_num',
             expr: |||
-              sum_over_time(sum by (replication_id) (NooBaa_replication_last_cycle_error_writes_num)[1y:30s])
+              sum_over_time(sum by (replication_id) (NooBaa_replication_last_cycle_error_writes_num)[1y:6m])
             ||| % $._config,
           },
           {
             record: 'noobaa_replication_total_cycles',
             expr: |||
-              count_over_time(count by (replication_id) (NooBaa_replication_last_cycle_writes_size)[1y:30s])
+              count_over_time(count by (replication_id) (NooBaa_replication_last_cycle_writes_size)[1y:6m])
             ||| % $._config,
           },
         ],
