@@ -72,7 +72,7 @@
           {
             record: 'odf_system_raw_capacity_used_bytes',
             expr: |||
-              NooBaa_system_capacity
+              NooBaa_total_usage
             ||| % $._config,
             labels: {
               system_vendor: 'Red Hat',
