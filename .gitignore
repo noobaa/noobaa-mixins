@@ -9,3 +9,6 @@ jsonnetfile.lock.json
 !*manifests/*.yaml
 !*test_alerts.yaml
 !*test_rules.yaml
+
+# custom ignored files - use .IGNORE or any prefix.IGNORE dir/file name to remove from git
+*.IGNORE
