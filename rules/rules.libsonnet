@@ -99,6 +99,26 @@
               system_type: 'OCS',
             },
           },
+          {
+            record: 'odf_system_bucket_count',
+            expr: |||
+              sum by (namespace, job, service) (NooBaa_num_buckets + NooBaa_num_buckets_claims)
+            ||| % $._config,
+            labels: {
+              system_vendor: 'Red Hat',
+              system_type: 'OCS',
+            },
+          },
+          {
+            record: 'odf_system_objects_total',
+            expr: |||
+              sum by (namespace, job, service) (NooBaa_num_objects + NooBaa_num_objects_buckets_claims)
+            ||| % $._config,
+            labels: {
+              system_vendor: 'Red Hat',
+              system_type: 'OCS',
+            },
+          },
         ],
       },
       {
